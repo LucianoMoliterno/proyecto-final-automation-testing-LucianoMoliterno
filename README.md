@@ -363,11 +363,3 @@ pip install --upgrade webdriver-manager
 
 Este proyecto es de uso académico para el curso de Testing QA.
 
----
-
-## Contacto
-
-**Autor:** Luciano Moliterno  
-**Proyecto:** Framework de Automatización - Talento Lab  
-**Repositorio:** [GitHub](https://github.com/usuario/proyecto-final-automation-testing-LucianoMoliterno)
-
