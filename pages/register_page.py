@@ -1,34 +1,57 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from utils.logger import Logger
 
 class RegisterPage(BasePage):
-    # --- LOCATORS (Identificadores de elementos) ---
-    # Nota: Como no tengo el HTML real, asumo que usan 'name' o 'id'.
-    # Si al correr el test falla, inspecciona la web y ajusta estos valores.
-    NAME_INPUT = (By.NAME, "name")
-    EMAIL_INPUT = (By.NAME, "email")
-    PASSWORD_INPUT = (By.NAME, "password")
-    SUBMIT_BTN = (By.XPATH, "//button[contains(text(), 'Registrarse')]")
-    SUCCESS_MSG = (By.XPATH, "//h2[contains(text(), 'Bienvenido')]") # Ajustar según mensaje real
+    """Page Object para la página de registro."""
+
+    # Locators - ACTUALIZADOS según HTML real
+    URL = "https://talentolab-test.netlify.app/register"
+    INPUT_NOMBRE = (By.NAME, "nombre")
+    INPUT_EMAIL = (By.NAME, "email")
+    INPUT_PASSWORD = (By.NAME, "contrasena")
+    INPUT_CV = (By.NAME, "cv")
+    BTN_SUBMIT = (By.XPATH, "//button[@type='submit']")
+    SUCCESS_MSG = (By.CSS_SELECTOR, ".alert-success, .success-message, h2")
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.url = "https://talentolab-test.netlify.app" # URL de tu PDF
+        self.logger = Logger.get_logger(__name__)
 
     def open(self):
         """Abre la página de registro."""
-        self.driver.get(self.url)
+        self.logger.info(f"Navegando a: {self.URL}")
+        self.driver.get(self.URL)
 
-    def complete_form(self, name, email, password):
-        """Llena el formulario completo y envía."""
-        self.type(self.NAME_INPUT, name)
-        self.type(self.EMAIL_INPUT, email)
-        self.type(self.PASSWORD_INPUT, password)
-        self.click(self.SUBMIT_BTN)
+    def complete_form(self, nombre, email, password):
+        """Llena el formulario de registro."""
+        self.logger.info(f"Completando formulario: nombre={nombre}, email={email}")
+        self.type(self.INPUT_NOMBRE, nombre)
+        self.type(self.INPUT_EMAIL, email)
+        self.type(self.INPUT_PASSWORD, password)
+
+    def upload_cv(self, file_path):
+        """Sube un archivo CV."""
+        self.logger.info(f"Subiendo CV: {file_path}")
+        try:
+            cv_input = self.driver.find_element(*self.INPUT_CV)
+            cv_input.send_keys(file_path)
+            self.logger.info("CV cargado exitosamente")
+        except Exception as e:
+            self.logger.error(f"Error al cargar CV: {str(e)}")
+            raise
+
+    def submit_form(self):
+        """Envía el formulario."""
+        self.logger.info("Enviando formulario de registro")
+        self.click(self.BTN_SUBMIT)
 
     def is_registration_successful(self):
-        """Verifica si aparece el mensaje de éxito."""
+        """Verifica si el registro fue exitoso."""
         try:
-            return self.get_text(self.SUCCESS_MSG)
+            msg = self.get_text(self.SUCCESS_MSG)
+            self.logger.info(f"Mensaje encontrado: {msg}")
+            return msg
         except:
+            self.logger.warning("No se encontró mensaje de éxito")
             return None
