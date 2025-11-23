@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.iml
+
+# pytest
+.pytest_cache/
+.cache/
+
+# Coverage
+.coverage
+htmlcov/
+*.cover
+
+# Reports - mantener estructura pero ignorar archivos generados
+reports/*.html
+reports/screenshots/*.png
+reports/logs/*.log
+!reports/.gitkeep
+!reports/screenshots/.gitkeep
+!reports/logs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Selenium
+*.log
+geckodriver.log
+chromedriver.log
+
+# Test data temporal
+test_data/*.tmp
+test_data/cv_*.txt
+test_data/cv_*.pdf
+
+# Scripts de inspección temporal
+inspect_*.py
+
