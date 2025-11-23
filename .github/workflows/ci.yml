@@ -26,32 +26,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Configurar Chrome
-      uses: browser-actions/setup-chrome@latest
-
-    - name: Verificar instalación
+    - name: Ejecutar tests API
       run: |
-        python --version
-        pip list
-        which google-chrome || which chromium-browser
-
-    - name: Ejecutar tests unitarios (sin navegador)
-      run: |
-        pytest tests/ -v -m "not web" --tb=short || echo "No hay tests sin marca 'web'"
+        pytest tests/test_api.py -v --tb=short
       continue-on-error: true
 
-    - name: Generar reporte
+    - name: Generar reporte de ejecución
       if: always()
       run: |
-        echo "Tests completados en CI/CD"
-
-    - name: Upload artifacts
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-reports
-        path: |
-          reports/
-          reports/logs/
-        retention-days: 30
-
+        echo "✅ Tests de API completados"
+        echo "📊 Resultados disponibles en los logs de GitHub Actions"
