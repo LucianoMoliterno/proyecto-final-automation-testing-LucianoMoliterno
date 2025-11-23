@@ -51,16 +51,12 @@ class TestVisualizacion:
 
         servicios = ServiciosPage(driver)
 
-        # Contar tarjetas de servicios
-        cantidad_tarjetas = servicios.get_cantidad_tarjetas()
-        logger.info(f"Tarjetas de servicios encontradas: {cantidad_tarjetas}")
-
-        # Obtener servicios disponibles
+        # Obtener servicios disponibles (método que funciona)
         servicios_disponibles = servicios.get_servicios_disponibles()
         logger.info(f"Servicios disponibles: {servicios_disponibles}")
 
-        # Verificación: Debe haber al menos 4 servicios
-        assert cantidad_tarjetas >= 4, f"Se esperaban 4 tarjetas, se encontraron {cantidad_tarjetas}"
+        # Verificación: Debe haber 4 servicios
+        assert len(servicios_disponibles) >= 4, f"Se esperaban 4 servicios, se encontraron {len(servicios_disponibles)}"
 
         # Verificar servicios específicos
         servicios_esperados = ["Reclutamiento", "Headhunting", "Evaluación", "Consultoría"]
@@ -93,4 +89,3 @@ class TestVisualizacion:
         assert len(servicios_disponibles) > 0, "No se encontró información de servicios"
 
         logger.info("✓ Test exitoso: Información accesible y bien presentada")
-
