@@ -1,0 +1,76 @@
+2025-11-22 22:21:53 - tests.test_api - INFO - === Iniciando API Test 1: GET Lista de Usuarios ===
+2025-11-22 22:21:54 - tests.test_api - INFO - Endpoint: https://reqres.in/api/users?page=1
+2025-11-22 22:21:54 - tests.test_api - INFO - Status Code: 401
+2025-11-22 22:21:55 - tests.test_api - INFO - === Iniciando API Test 2: GET Usuario Individual ===
+2025-11-22 22:21:55 - tests.test_api - INFO - Endpoint: https://reqres.in/api/users/2
+2025-11-22 22:21:55 - tests.test_api - INFO - Status Code: 401
+2025-11-22 22:21:55 - tests.test_api - INFO - === Iniciando API Test 3: GET Usuario No Encontrado (NEGATIVO) ===
+2025-11-22 22:21:56 - tests.test_api - INFO - Endpoint: https://reqres.in/api/users/999
+2025-11-22 22:21:56 - tests.test_api - INFO - Status Code: 401
+2025-11-22 22:21:56 - tests.test_api - INFO - === Iniciando API Test 4: POST Crear Usuario ===
+2025-11-22 22:21:56 - tests.test_api - INFO - Endpoint: https://reqres.in/api/users
+2025-11-22 22:21:56 - tests.test_api - INFO - Datos enviados: {'name': 'Carlos Mendez', 'job': 'Editor de Video'}
+2025-11-22 22:21:56 - tests.test_api - INFO - Status Code: 401
+2025-11-22 22:21:56 - tests.test_api - INFO - === Iniciando API Test 5: DELETE Usuario ===
+2025-11-22 22:21:57 - tests.test_api - INFO - Endpoint: https://reqres.in/api/users/2
+2025-11-22 22:21:57 - tests.test_api - INFO - Status Code: 401
+2025-11-22 22:21:57 - tests.test_api - INFO - === Iniciando API Test 6: Encadenamiento POST + GET ===
+2025-11-22 22:21:57 - tests.test_api - INFO - Paso 1: Creando usuario...
+2025-11-22 22:23:15 - tests.test_api - INFO - === Iniciando API Test 1: GET Lista de Usuarios ===
+2025-11-22 22:23:15 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/users
+2025-11-22 22:23:15 - tests.test_api - INFO - Status Code: 200
+2025-11-22 22:23:15 - tests.test_api - INFO - ✓ Test exitoso: 10 usuarios obtenidos
+2025-11-22 22:23:15 - tests.test_api - INFO - Primer usuario: Leanne Graham (Sincere@april.biz)
+2025-11-22 22:23:15 - tests.test_api - INFO - === Iniciando API Test 2: GET Usuario Individual ===
+2025-11-22 22:23:15 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/users/1
+2025-11-22 22:23:15 - tests.test_api - INFO - Status Code: 200
+2025-11-22 22:23:15 - tests.test_api - INFO - ✓ Usuario obtenido: Leanne Graham
+2025-11-22 22:23:15 - tests.test_api - INFO - Email: Sincere@april.biz
+2025-11-22 22:23:15 - tests.test_api - INFO - === Iniciando API Test 3: GET Usuario No Encontrado (NEGATIVO) ===
+2025-11-22 22:23:16 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/users/9999
+2025-11-22 22:23:16 - tests.test_api - INFO - Status Code: 404
+2025-11-22 22:23:16 - tests.test_api - INFO - ✓ Test exitoso: Usuario inexistente retorna 404 correctamente
+2025-11-22 22:23:16 - tests.test_api - INFO - === Iniciando API Test 4: POST Crear Post ===
+2025-11-22 22:23:16 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/posts
+2025-11-22 22:23:16 - tests.test_api - INFO - Datos enviados: {'title': 'Test Automation - Talento Lab', 'body': 'Este es un test de automatización para el proyecto final', 'userId': 1}
+2025-11-22 22:23:16 - tests.test_api - INFO - Status Code: 201
+2025-11-22 22:23:16 - tests.test_api - INFO - ✓ Post creado exitosamente con ID: 101
+2025-11-22 22:23:16 - tests.test_api - INFO - === Iniciando API Test 5: DELETE Post ===
+2025-11-22 22:23:16 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/posts/1
+2025-11-22 22:23:16 - tests.test_api - INFO - Status Code: 200
+2025-11-22 22:23:16 - tests.test_api - INFO - ✓ Post eliminado exitosamente
+2025-11-22 22:23:16 - tests.test_api - INFO - === Iniciando API Test 6: Encadenamiento POST + GET ===
+2025-11-22 22:23:16 - tests.test_api - INFO - Paso 1: Creando post...
+2025-11-22 22:23:16 - tests.test_api - INFO - ✓ Post creado con ID: 101
+2025-11-22 22:23:16 - tests.test_api - INFO - Paso 2: Obteniendo lista de posts...
+2025-11-22 22:23:17 - tests.test_api - INFO - ✓ Lista obtenida: 100 posts encontrados
+2025-11-22 22:23:17 - tests.test_api - INFO - ✓ Encadenamiento de peticiones exitoso
+2025-11-22 22:24:33 - tests.test_api - INFO - === Iniciando API Test 1: GET Lista de Usuarios ===
+2025-11-22 22:24:33 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/users
+2025-11-22 22:24:33 - tests.test_api - INFO - Status Code: 200
+2025-11-22 22:24:33 - tests.test_api - INFO - ✓ Test exitoso: 10 usuarios obtenidos
+2025-11-22 22:24:33 - tests.test_api - INFO - Primer usuario: Leanne Graham (Sincere@april.biz)
+2025-11-22 22:24:33 - tests.test_api - INFO - === Iniciando API Test 2: GET Usuario Individual ===
+2025-11-22 22:24:33 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/users/1
+2025-11-22 22:24:33 - tests.test_api - INFO - Status Code: 200
+2025-11-22 22:24:33 - tests.test_api - INFO - ✓ Usuario obtenido: Leanne Graham
+2025-11-22 22:24:33 - tests.test_api - INFO - Email: Sincere@april.biz
+2025-11-22 22:24:33 - tests.test_api - INFO - === Iniciando API Test 3: GET Usuario No Encontrado (NEGATIVO) ===
+2025-11-22 22:24:33 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/users/9999
+2025-11-22 22:24:33 - tests.test_api - INFO - Status Code: 404
+2025-11-22 22:24:33 - tests.test_api - INFO - ✓ Test exitoso: Usuario inexistente retorna 404 correctamente
+2025-11-22 22:24:33 - tests.test_api - INFO - === Iniciando API Test 4: POST Crear Post ===
+2025-11-22 22:24:33 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/posts
+2025-11-22 22:24:33 - tests.test_api - INFO - Datos enviados: {'title': 'Test Automation - Talento Lab', 'body': 'Este es un test de automatización para el proyecto final', 'userId': 1}
+2025-11-22 22:24:33 - tests.test_api - INFO - Status Code: 201
+2025-11-22 22:24:33 - tests.test_api - INFO - ✓ Post creado exitosamente con ID: 101
+2025-11-22 22:24:33 - tests.test_api - INFO - === Iniciando API Test 5: DELETE Post ===
+2025-11-22 22:24:34 - tests.test_api - INFO - Endpoint: https://jsonplaceholder.typicode.com/posts/1
+2025-11-22 22:24:34 - tests.test_api - INFO - Status Code: 200
+2025-11-22 22:24:34 - tests.test_api - INFO - ✓ Post eliminado exitosamente
+2025-11-22 22:24:34 - tests.test_api - INFO - === Iniciando API Test 6: Encadenamiento POST + GET ===
+2025-11-22 22:24:34 - tests.test_api - INFO - Paso 1: Creando post...
+2025-11-22 22:24:34 - tests.test_api - INFO - ✓ Post creado con ID: 101
+2025-11-22 22:24:34 - tests.test_api - INFO - Paso 2: Obteniendo lista de posts...
+2025-11-22 22:24:34 - tests.test_api - INFO - ✓ Lista obtenida: 100 posts encontrados
+2025-11-22 22:24:34 - tests.test_api - INFO - ✓ Encadenamiento de peticiones exitoso
