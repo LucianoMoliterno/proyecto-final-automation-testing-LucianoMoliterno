@@ -5,13 +5,14 @@ from utils.logger import Logger
 class ServiciosPage(BasePage):
     """Page Object para la sección de Servicios."""
 
-    # Locators
-    TITULO_SERVICIOS = (By.XPATH, "//h2[contains(text(), 'Servicios')]")
-    TARJETAS_SERVICIOS = (By.CSS_SELECTOR, ".service-card, .card")
-    TARJETA_RECLUTAMIENTO = (By.XPATH, "//*[contains(text(), 'Reclutamiento')]")
-    TARJETA_HEADHUNTING = (By.XPATH, "//*[contains(text(), 'Headhunting')]")
-    TARJETA_EVALUACION = (By.XPATH, "//*[contains(text(), 'Evaluación')]")
-    TARJETA_CONSULTORIA = (By.XPATH, "//*[contains(text(), 'Consultoría')]")
+    # Locators - ACTUALIZADOS
+    SECCION_SERVICIOS = (By.ID, "servicios")
+    TITULO_SERVICIOS = (By.XPATH, "//*[@id='servicios']//h2")
+    TARJETAS_SERVICIOS = (By.CSS_SELECTOR, "#servicios .card, #servicios .service-card, #servicios .col")
+    TARJETA_RECLUTAMIENTO = (By.XPATH, "//*[@id='servicios']//*[contains(text(), 'Reclutamiento')]")
+    TARJETA_HEADHUNTING = (By.XPATH, "//*[@id='servicios']//*[contains(text(), 'Headhunting')]")
+    TARJETA_EVALUACION = (By.XPATH, "//*[@id='servicios']//*[contains(text(), 'Evaluación')]")
+    TARJETA_CONSULTORIA = (By.XPATH, "//*[@id='servicios']//*[contains(text(), 'Consultoría')]")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -31,7 +32,7 @@ class ServiciosPage(BasePage):
     def verificar_servicio_existe(self, nombre_servicio):
         """Verifica si un servicio específico está visible."""
         try:
-            locator = (By.XPATH, f"//*[contains(text(), '{nombre_servicio}')]")
+            locator = (By.XPATH, f"//*[@id='servicios']//*[contains(text(), '{nombre_servicio}')]")
             element = self.find(locator)
             self.logger.info(f"Servicio '{nombre_servicio}' encontrado")
             return True
@@ -49,4 +50,3 @@ class ServiciosPage(BasePage):
                 disponibles.append(servicio)
 
         return disponibles
-

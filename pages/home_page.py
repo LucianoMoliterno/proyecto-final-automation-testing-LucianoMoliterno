@@ -5,11 +5,13 @@ from utils.logger import Logger
 class HomePage(BasePage):
     """Page Object para la página principal de Talento Lab."""
 
-    # Locators
+    # Locators - ACTUALIZADOS según estructura real
     BTN_REGISTRATE = (By.LINK_TEXT, "Registrate")
     BTN_CARGA_CV = (By.LINK_TEXT, "Carga tu CV")
-    SECCION_SERVICIOS = (By.XPATH, "//section[contains(@class, 'servicios')]")
-    SECCION_CONTACTO = (By.XPATH, "//section[contains(@id, 'contacto')]")
+    SECCION_SERVICIOS = (By.ID, "servicios")  # Cambiado a ID
+    SECCION_CONTACTO = (By.ID, "contacto")    # Cambiado a ID
+    SECCION_NOSOTROS = (By.ID, "nosotros")
+    SECCION_CLIENTES = (By.ID, "clientes")
     MENU_HAMBURGUESA = (By.CSS_SELECTOR, ".navbar-toggler")
 
     def __init__(self, driver):

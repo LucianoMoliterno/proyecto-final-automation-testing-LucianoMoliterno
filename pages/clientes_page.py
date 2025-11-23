@@ -5,9 +5,9 @@ from utils.logger import Logger
 class ClientesPage(BasePage):
     """Page Object para la sección Nuestros Clientes / Testimonios."""
 
-    # Locators
-    SECCION_CLIENTES = (By.XPATH, "//section[contains(@id, 'clientes')]")
-    TESTIMONIOS = (By.CSS_SELECTOR, ".testimonial, .client-card")
+    # Locators - ACTUALIZADOS
+    SECCION_CLIENTES = (By.ID, "clientes")
+    TESTIMONIOS = (By.CSS_SELECTOR, ".testimonials, #clientes .card, #clientes .testimonial")
     TESTIMONIO_ROSS = (By.XPATH, "//*[contains(text(), 'Ross')]")
     TESTIMONIO_JOEY = (By.XPATH, "//*[contains(text(), 'Joey')]")
     TESTIMONIO_PHOEBE = (By.XPATH, "//*[contains(text(), 'Phoebe')]")
@@ -59,4 +59,3 @@ class ClientesPage(BasePage):
         except:
             self.logger.warning("Carrusel de navegación no encontrado")
             return False
-
