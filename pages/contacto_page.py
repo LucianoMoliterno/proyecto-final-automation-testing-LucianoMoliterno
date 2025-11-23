@@ -5,10 +5,11 @@ from utils.logger import Logger
 class ContactoPage(BasePage):
     """Page Object para la sección de Contacto."""
 
-    # Locators
-    INPUT_NOMBRE = (By.NAME, "name")
-    INPUT_EMAIL = (By.NAME, "email")
-    INPUT_MENSAJE = (By.NAME, "message")
+    # Locators - ACTUALIZADOS según HTML real
+    SECCION_CONTACTO = (By.ID, "contacto")
+    INPUT_NOMBRE = (By.CSS_SELECTOR, "input[placeholder='Nombre']")
+    INPUT_EMAIL = (By.CSS_SELECTOR, "input[placeholder='Email']")
+    INPUT_MENSAJE = (By.CSS_SELECTOR, "textarea[placeholder='Mensaje'], textarea")
     BTN_ENVIAR = (By.XPATH, "//button[contains(text(), 'Enviar')]")
     MENSAJE_CONFIRMACION = (By.CSS_SELECTOR, ".alert-success, .success-message")
     MENSAJE_ERROR = (By.CSS_SELECTOR, ".alert-danger, .error-message")
@@ -69,4 +70,3 @@ class ContactoPage(BasePage):
         except Exception as e:
             self.logger.error(f"Error al verificar estado del botón: {str(e)}")
             return False
-
