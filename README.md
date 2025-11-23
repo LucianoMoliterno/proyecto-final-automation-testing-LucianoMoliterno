@@ -1,13 +1,12 @@
 # Framework de Automatización de Pruebas - Talento Lab
 
 **Autor:** Luciano Moliterno  
-**Plataforma bajo prueba:**  <a href="https://talentolab-test.netlify.app" target="_blank">
-  <img src="https://github.com/user-attachments/assets/d8175aff-7e93-45ca-b4cf-44067c689ef4" alt="TalentoLab Preview" style="width: 80px; height: auto;"></a>
+**Plataforma bajo prueba:**  <a href="https://talentolab-test.netlify.app"><img src="https://github.com/user-attachments/assets/d8175aff-7e93-45ca-b4cf-44067c689ef4" alt="TalentoLab" style="height: 40px; width: auto; vertical-align: middle;"></a>
   
 **Lenguaje:** Python 3.11+  
 **Framework:** Pytest + Selenium WebDriver + Requests
 
-**Documentacion:**  <a href="https://drive.google.com/file/d/1ltj5PCKCXc09iVe1jnfX22SGfaXTAXQ-/view?usp=sharing" target="_blank"> <img src="https://github.com/user-attachments/assets/c1f740f0-b2b7-4694-8aab-fc6862573a62" alt="Documentación Google Drive" style="width: 80px; height: auto;"> </a>
+**Documentacion:**  <a href="https://drive.google.com/file/d/1ltj5PCKCXc09iVe1jnfX22SGfaXTAXQ-/view?usp=sharing"><img src="https://github.com/user-attachments/assets/c1f740f0-b2b7-4694-8aab-fc6862573a62" alt="Drive" style="height: 35px; width: auto; vertical-align: middle;"></a>
 
 ---
 
