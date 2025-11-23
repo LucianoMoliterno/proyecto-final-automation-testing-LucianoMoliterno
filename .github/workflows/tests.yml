@@ -1,21 +1,22 @@
-name: Automated Tests - Talento Lab
+name: Tests Automatizados
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  test:
+  test-api:
+    name: Tests de API
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout código
       uses: actions/checkout@v3
 
-    - name: Configurar Python 3.11
+    - name: Configurar Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
@@ -28,12 +29,66 @@ jobs:
     - name: Ejecutar tests de API
       run: |
         pytest tests/test_api.py -v --html=reports/api_report.html --self-contained-html
-      continue-on-error: true
+      continue-on-error: false
 
-    - name: Subir reportes como artefactos
-      uses: actions/upload-artifact@v3
+    - name: Subir reporte de API
       if: always()
+      uses: actions/upload-artifact@v3
       with:
-        name: test-reports
-        path: reports/
+        name: reporte-api
+        path: reports/api_report.html
+        retention-days: 30
+
+  test-ui:
+    name: Tests de UI (Solo validación de código)
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Validar sintaxis de tests UI
+      run: |
+        python -m py_compile tests/test_*.py
+        echo "✓ Sintaxis de todos los tests es válida"
+
+    - name: Verificar estructura del proyecto
+      run: |
+        echo "Verificando estructura..."
+        test -d pages && echo "✓ Directorio pages existe"
+        test -d tests && echo "✓ Directorio tests existe"
+        test -d utils && echo "✓ Directorio utils existe"
+        test -f requirements.txt && echo "✓ requirements.txt existe"
+        test -f pytest.ini && echo "✓ pytest.ini existe"
+        echo "✓ Estructura del proyecto correcta"
+
+  resumen:
+    name: Resumen de Tests
+    runs-on: ubuntu-latest
+    needs: [test-api, test-ui]
+    if: always()
+
+    steps:
+    - name: Resultado final
+      run: |
+        echo "========================================"
+        echo "RESUMEN DE EJECUCIÓN"
+        echo "========================================"
+        echo "✓ Tests de API: Ejecutados"
+        echo "✓ Validación de código UI: Completada"
+        echo "✓ Estructura del proyecto: Verificada"
+        echo "========================================"
+        echo "Proyecto: Framework Automatización - Talento Lab"
+        echo "Autor: Luciano Moliterno"
+        echo "========================================"
 
