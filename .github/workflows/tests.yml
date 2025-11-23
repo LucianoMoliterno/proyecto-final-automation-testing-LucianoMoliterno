@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout código
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Configurar Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
@@ -33,7 +33,7 @@ jobs:
 
     - name: Subir reporte de API
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: reporte-api
         path: reports/api_report.html
@@ -45,10 +45,10 @@ jobs:
 
     steps:
     - name: Checkout código
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Configurar Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
@@ -91,4 +91,3 @@ jobs:
         echo "Proyecto: Framework Automatización - Talento Lab"
         echo "Autor: Luciano Moliterno"
         echo "========================================"
-
